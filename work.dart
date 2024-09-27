@@ -1,46 +1,43 @@
-class Laptop
-{
-  int? id;
-  String? name;
-  double? ram;
+import 'dart:math';
 
-  Laptop(this.id,this.name,this.ram);
-  void display()
-  {
-    print("Id = ${this.id}");
-    print("Name = ${this.name}");
-    print("Ram = ${this.ram}");
+abstract class Shape{
+  double calculateArea();
+}
+ abstract class Drawable{
+  draw();
+}
+class Circle extends Shape implements Drawable{
+  double radius;
+  Circle(this.radius);
+  @override
+  double calculateArea() {
+    return pi * pow(radius, 2);
+  }
+  @override
+  draw() {
+    print("Drawing Circle with radius: $radius");
   }
 }
-class House
-{
-  int? id;
-  String? name;
-  double? price;
 
-  House({this.id = 3651051541143,this.name = "บ้านเลขที่ 59/7",this.price = 150000});
-  void display()
-  {
-    print("Id = ${this.id}");
-    print("Name = ${this.name}");
-    print("Price = ${this.price}");
+class Rectangle extends Shape implements Drawable{
+  double width,hight;
+  Rectangle(this.width,this.hight);
+  @override
+  double calculateArea() {
+    return width*hight;
+  }
+  @override
+  draw() {
+    print("Drawing Rectangle with width: $width and hight: $hight");
   }
 }
-class Car
-{
-  String? brand;
-  String? Color;
-  double? price;
 
-  Car(this.brand,this.Color,[this.price]);
-  void setprice(double price)
-  {
-    this.price = price;
-  }
-  void display()
-  {
-    print("Brand = ${this.brand}");
-    print("Color = ${this.Color}");
-    print("Price = ${this.price}");
-  }
+void main(List<String> args) {
+  var circle = Circle(5);
+  var rectangle = Rectangle(10, 20);
+  circle.draw();
+  print("Area of Circle: ${circle.calculateArea().toStringAsFixed(2)}");
+  rectangle.draw();
+  print("Area of Rectangle: ${rectangle.calculateArea()}");
+
 }
