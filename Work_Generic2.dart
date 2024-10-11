@@ -1,3 +1,4 @@
+//นายพัทธวี พงหนองพอก 3651051541143
 abstract class Printable{
   void PrintData();
 }
