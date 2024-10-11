@@ -1,3 +1,4 @@
+//นายพัทธวี พงหนองพอก 3651051541143
 class pair<T,U extends num>{
   T first;
   U second;
